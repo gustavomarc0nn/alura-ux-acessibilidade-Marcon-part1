@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoDicas Sênior - Guia do Motorista</title>
+  
+  <style>
+    /* ===================================================
+       ESTILOS DE ACESSIBILIDADE E DESIGN (CSS)
+       =================================================== */
+
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Rolagem suave e tamanho de fonte aumentado para facilidade de leitura */
+    html {
+      scroll-behavior: smooth;
+      font-size: 20px; /* Fonte base maior que o padrão */
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #F4F6F9;
+      color: #111111; /* Contraste máximo para leitura fácil */
+      line-height: 1.6;
+      padding-bottom: 50px;
+    }
+
+    /* Cabeçalho Principal */
+    header {
+      background-color: #003366; /* Azul escuro */
+      color: #FFFFFF;
+      text-align: center;
+      padding: 30px 20px;
+      border-bottom: 6px solid #FFCC00; /* Linha de destaque amarela */
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #E6F0FA;
+    }
+
+    /* Menu de Navegação Rápida */
+    nav {
+      background-color: #FFFFFF;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+    }
+
+    .menu-title {
+      text-align: center;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333333;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .menu-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      list-style: none;
+    }
+
+    /* Botões do menu bem grandes e legíveis */
+    .menu-link {
+      display: inline-block;
+      background-color: #0055A5;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 14px 22px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      border: 2px solid #003366;
+      text-align: center;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    /* Efeito ao passar o mouse ou focar no teclado */
+    .menu-link:hover, 
+    .menu-link:focus {
+      background-color: #FFCC00;
+      color: #000000;
+      outline: 3px solid #000000;
+    }
+
+    /* Área do Conteúdo Principal */
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* Estilo dos Cartões de Seção */
+    .section-card {
+      background-color: #FFFFFF;
+      border: 3px solid #D0D7DE;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-card h2 {
+      font-size: 1.8rem;
+      color: #003366;
+      border-bottom: 4px solid #0055A5;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Bloco de Dica Individual */
+    .tip-box {
+      background-color: #EEF5FC;
+      border-left: 8px solid #0055A5;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .tip-box h3 {
+      font-size: 1.4rem;
+      color: #002244;
+      margin-bottom: 8px;
+    }
+
+    .tip-box p {
+      font-size: 1.15rem;
+      color: #222222;
+    }
+
+    /* Listas com marcação destacada */
+    ul.check-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    ul.check-list li {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      padding-left: 35px;
+      position: relative;
+    }
+
+    ul.check-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #008800;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    /* Caixas de Alerta/Atenção */
+    .alert-box {
+      background-color: #FFF3CD;
+      border: 3px solid #FFEBA2;
+      border-left: 8px solid #D97706;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .alert-box h3 {
+      color: #856404;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .alert-box p {
+      color: #333333;
+      font-size: 1.1rem;
+    }
+
+    /* Botão Voltar ao Topo */
+    .back-to-top {
+      display: block;
+      text-align: center;
+      margin: 40px auto 20px;
+      background-color: #333333;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 16px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 30px;
+      width: fit-content;
+      border: 2px solid #000000;
+    }
+
+    .back-to-top:hover, 
+    .back-to-top:focus {
+      background-color: #FFCC00;
+      color: #000000;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #002244;
+      color: #FFFFFF;
+      font-size: 1rem;
+      margin-top: 40px;
+    }
+
+    /* Adaptação para celulares (Responsivo) */
+    @media (max-width: 600px) {
+      html {
+        font-size: 18px; /* Reduz levemente em telas muito pequenas */
+      }
+      .menu-link {
+        width: 100%; /* Botões ocupam toda a largura no celular */
+      }
+      .section-card {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header id="inicio">
+    <h1>🚗 AutoDicas Sênior</h1>
+    <p>Seu guia prático, simples e fácil de ler para dirigir com conforto e segurança.</p>
+  </header>
+
+  <!-- MENU DE NAVEGAÇÃO RÁPIDA -->
+  <nav aria-label="Navegação do site">
+    <div class="menu-title">Escolha o assunto que deseja ler:</div>
+    <ul class="menu-list">
+      <li><a href="#manutencao" class="menu-link">🔧 Manutenção</a></li>
+      <li><a href="#postura" class="menu-link">🪑 Conforto</a></li>
+      <li><a href="#seguranca" class="menu-link">🛡️ Seguranca</a></li>
+      <li><a href="#tecnologia" class="menu-link">📱 Tecnologia</a></li>
+      <li><a href="#emergencia" class="menu-link">📞 Telefones</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL (TUDO NA MESMA PÁGINA) -->
+  <main>
+
+    <!-- SEÇÃO 1: MANUTENÇÃO BÁSICA -->
+    <section id="manutencao" class="section-card">
+      <h2>🔧 1. Manutenção Fácil do Carro</h2>
+      
+      <div class="tip-box">
+        <h3>Calibragem dos Pneus</h3>
+        <p>Calibre os pneus a cada 15 dias, sempre com eles ainda "frios" (andando no máximo 3 km até o posto). Pneus calibrados deixam a direção mais leve e economizam combustível.</p>
+      </div>
+
+      <div class="tip-box">
+        <h3>Água do Limpador de Para-brisa</h3>
+        <p>Mantenha o reservatório de água do vidro sempre cheio. Adicione uma gota de detergente neutro para ajudar a limpar a gordura do vidro em dias de chuva.</p>
+      </div>
+
+      <div class="tip-box">
+        <h3>Óleo e Água do Motor</h3>
+        <p>Ao abastecer no posto, peça ao frentista de sua confiança para checar o nível do óleo do motor e o nível da água do radiador uma vez por mês.</p>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: POSTURA E CONFORTO -->
+    <section id="postura" class="section-card">
+      <h2>🪑 2. Postura e Conforto ao Dirigir</h2>
+      
+      <p style="margin-bottom: 15px;">Ajustar o carro corretamente evita dores nas costas e facilita a visão do trânsito:</p>
+
+      <ul class="check-list">
+        <li><strong>Distância das pernas:</strong> Ao pisar fundo no pedal, seu joelho deve ficar ligeiramente dobrado, nunca totalmente esticado.</li>
+        <li><strong>Encosto do banco:</strong> Mantenha a coluna toda apoiada no banco. O encosto de cabeça deve ficar na altura dos seus olhos.</li>
+        <li><strong>Espelhos retrovisores:</strong> Ajuste os espelhos laterais para fora, até quase parar de ver a lateral do seu próprio carro. Isso reduz os "pontos cegos".</li>
+        <li><strong>Altura do volante:</strong> Ajuste o volante para que você consiga enxergar todo o painel de instrumentos sem esforço.</li>
+      </ul>
+    </section>
+
+    <!-- SEÇÃO 3: DIREÇÃO SEGURA -->
+    <section id="seguranca" class="section-card">
+      <h2>🛡️ 3. Dicas para Uma Direção Segura</h2>
+      
+      <div class="tip-box">
+        <h3>Escolha os Melhores Horários</h3>
+        <p>Se puder escolher, prefira dirigir durante o dia e evite horários de pico (entre 7h-9h e 17h-19h). A visibilidade é melhor e o trânsito é mais tranquilo.</p>
+      </div>
+
+      <div class="tip-box">
+        <h3>Óculos e Visão</h3>
+        <p>Se você usa óculos para dirigir, mantenha um par reserva de óculos de grau dentro do porta-luvas do carro. Use óculos de sol para evitar o encadeamento nos horários de sol forte.</p>
+      </div>
+
+      <div class="tip-box">
+        <h3>Faça Pausas em Viagens</h3>
+        <p>Em viagens mais longas, pare a cada 1 hora e meia para esticar as pernas, caminhar um pouco e beber água. Isso melhora a circulação e renova a atenção.</p>
+      </div>
+
+      <div class="alert-box">
+        <h3>⚠️ Lembrete Importante:</h3>
+        <p>Nunca dirija se estiver sentindo tonturas, cansaço excessivo ou após tomar remédios que causem sonolência. A sua segurança vem sempre em primeiro lugar!</p>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4: TECNOLOGIAS ÚTEIS -->
+    <section id="tecnologia" class="section-card">
+      <h2>📱 4. Tecnologias que Ajudam no Dia a Dia</h2>
+      
+      <p style="margin-bottom: 15px;">Ao escolher ou trocar de carro, fique atento a estes itens que facilitam muito a vida:</p>
+
+      <ul class="check-list">
+        <li><strong>Câmbio Automático:</strong> Elimina a necessidade de trocar marchas e pisar na embreagem, descansando as pernas e joelhos.</li>
+        <li><strong>Sensor e Câmera de Ré:</strong> Ajudam a estacionar com facilidade, avisando sobre obstáculos atrás do veículo.</li>
+        <li><strong>Direção Elétrica:</strong> É extremamente leve, permitindo manobrar e esterçar o volante sem fazer força nos braços.</li>
+        <li><strong>Chave Presencial (Botão Start):</strong> Permite ligar o carro apenas apertando um botão, sem precisar girar a chave na ignição.</li>
+      </ul>
+    </section>
+
+    <!-- SEÇÃO 5: TELEFONES E EMERGÊNCIA -->
+    <section id="emergencia" class="section-card">
+      <h2>📞 5. Telefones Úteis e Emergência</h2>
+      
+      <p style="margin-bottom: 20px;">Tenha estes números sempre anotados em um papel dentro do porta-luvas:</p>
+
+      <div class="tip-box">
+        <h3>🚨 Polícia Militar: 190</h3>
+        <p>Para situações de perigo, acidentes ou segurança na via.</p>
+      </div>
+
+      <div class="tip-box">
+        <h3>🚑 SAMU (Ambulância): 192</h3>
+        <p>Para emergências de saúde ou socorro médico rápido.</p>
+      </div>
+
+      <div class="tip-box">
+        <h3>👨‍🚒 Bombeiros: 193</h3>
+        <p>Para resgates, acidentes graves ou incêndios.</p>
+      </div>
+
+      <div class="tip-box">
+        <h3>🛡️ Sua Seguradora ou Guincho</h3>
+        <p>Deixe o número da sua seguradora e o número da sua apólice fáceis de encontrar.</p>
+      </div>
+    </section>
+
+    <!-- BOTÃO DE RETORNO -->
+    <a href="#inicio" class="back-to-top">⬆ Voltar ao Topo da Página</a>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p><strong>AutoDicas Sênior</strong> — Conteúdo informativo pensado para o seu bem-estar no trânsito.</p>
+  </footer>
+
+</body>
+</html>
