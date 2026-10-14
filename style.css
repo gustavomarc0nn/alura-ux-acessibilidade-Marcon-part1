@@ -1,19 +1,43 @@
+/* Estilos Base com Foco em Alto Contraste e Acessibilidade */
 body {
   font-family: Arial, sans-serif;
   font-size: 22px;
   line-height: 1.6;
-  background-color: #ffffff;
+  background-color: #f8f9fa;
   color: #111111;
   margin: 20px;
+  position: relative;
+}
+
+/* Canvas 3D de Fundo */
+#bg3d {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Container de Conteúdo */
+.content-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 header {
   border-bottom: 4px solid #0056b3;
   padding-bottom: 10px;
+  background-color: #ffffff;
 }
 
 nav {
   margin: 20px 0;
+  background-color: #ffffff;
+  padding: 10px 0;
 }
 
 nav a {
@@ -21,8 +45,14 @@ nav a {
   font-weight: bold;
   margin-right: 20px;
   color: #0056b3;
+  text-decoration: none;
 }
 
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Botões com Alta Visibilidade */
 .btn {
   background-color: #0056b3;
   color: #ffffff;
@@ -32,18 +62,105 @@ nav a {
   display: inline-block;
   font-weight: bold;
   margin-top: 15px;
+  font-size: 22px;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #003d80;
 }
 
 .btn-emergencia {
   background-color: #c92a2a;
 }
 
-ul li {
+.btn-emergencia:hover {
+  background-color: #a01e1e;
+}
+
+/* Cartões de Tópicos */
+.card-topico {
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-left: 6px solid #0056b3;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.header-topico {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-topico h3 {
+  margin: 0;
+  font-size: 26px;
+  color: #0056b3;
+}
+
+.icone-tema {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.icone-tema-emergencia {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+ul, ol {
+  margin-top: 15px;
+}
+
+ul li, ol li {
   margin-bottom: 15px;
 }
 
+/* Grid de Telefones de Emergência */
+.grid-emergencia {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card-emergencia {
+  background-color: #ffffff;
+  border: 3px solid #c92a2a;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-emergencia h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #111111;
+}
+
+.numero-destaque {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.numero-destaque a {
+  color: #c92a2a;
+  text-decoration: none;
+}
+
+.numero-destaque a:hover {
+  text-decoration: underline;
+}
+
+/* Rodapé */
 footer {
   margin-top: 40px;
   border-top: 2px solid #666;
   padding-top: 10px;
+  background-color: #ffffff;
 }
